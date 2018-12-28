@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "target": "es5",
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "declaration": true,
+    "rootDir": "src",
+    "outDir": "lib"
+  },
+  "exclude": ["**/__tests__"]
+}

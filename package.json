@@ -1,0 +1,37 @@
+{
+  "name": "html-juicer",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc -p . -w",
+    "build": "tsc -p .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fragment0/html-juicer.git"
+  },
+  "keywords": [
+    "readability"
+  ],
+  "author": "fragment0",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/fragment0/html-juicer/issues"
+  },
+  "homepage": "https://github.com/fragment0/html-juicer#readme",
+  "devDependencies": {
+    "@fragment0/tslint-config": "^0.1.7",
+    "@types/jest": "^23.3.10",
+    "@types/jsdom": "^12.2.0",
+    "@types/node": "^10.12.18",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.12.0",
+    "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "jsdom": "^13.1.0"
+  }
+}
