@@ -5,8 +5,11 @@ export interface Config {
   useHeaderAsTitle: boolean
   cleanH1: boolean
   cleanAttribute: boolean,
-  href: string
   url: URL | null
+}
+
+export type CustomConfig = Pick<Config, Exclude<keyof Config, 'url'>> & {
+  url: URL | string | null,
 }
 
 export class Juicer {
@@ -14,23 +17,20 @@ export class Juicer {
     useHeaderAsTitle: true,
     cleanH1: true,
     cleanAttribute: true,
-    href: '',
     url: null,
   }
 
   win: JSDOM['window']
-  config: typeof Juicer.defaultConfig
+  config: Config
   cache: {[key: string]: string} = {}
 
-  constructor(html: string, config?: Partial<typeof Juicer.defaultConfig>) {
+  constructor(html: string, config: Partial<CustomConfig> = {}) {
     this.win = new JSDOM(html).window
 
     this.config = {
       ...Juicer.defaultConfig,
       ...config,
-    }
-    if (!this.config.url && this.config.href) {
-      this.config.url = new URL(this.config.href)
+      url: config.url ? (typeof config.url === 'string' ? new URL(config.url) : config.url) : null,
     }
   }
 
@@ -57,7 +57,7 @@ export class Juicer {
   }
 }
 
-export function juice(html: string, config?: Partial<typeof Juicer.defaultConfig>): Juicer {
+export function juice(html: string, config?: Partial<CustomConfig>): Juicer {
   const juicer = new Juicer(html, config || {})
   return juicer
 }

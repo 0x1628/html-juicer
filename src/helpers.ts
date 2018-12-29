@@ -188,3 +188,12 @@ type JuicerNode = {juicer: {contentScore: number}} & Element
 function elementToJuicerNode(el: Element | null): JuicerNode {
   return <JuicerNode>el
 }
+
+// for test case
+export const _ = {
+  cleanDocument,
+  scoreEveryP,
+  getArticleRoot,
+  removeUnlikelyChilds,
+  cleanAttribute,
+}

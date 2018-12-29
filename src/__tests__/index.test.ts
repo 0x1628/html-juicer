@@ -16,7 +16,7 @@ test('simple', () => {
 
 test('medium', () => {
   const result = juice(medium, {
-    href: 'https://medium.com/@rrhoover/5-years-of-product-hunt-b466eece118',
+    url: 'https://medium.com/@rrhoover/5-years-of-product-hunt-b466eece118',
   })
 
   expect(result.title).toContain('5 Years')
@@ -28,7 +28,7 @@ test('medium', () => {
 
 test('zhihu', () => {
   const result = juice(zhihu, {
-    href: 'https://zhuanlan.zhihu.com/p/20184123',
+    url: 'https://zhuanlan.zhihu.com/p/20184123',
   })
 
   const {window: {document}} = new JSDOM(result.content)
