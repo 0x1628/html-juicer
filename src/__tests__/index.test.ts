@@ -4,6 +4,7 @@ import {JSDOM} from 'jsdom'
 import {juice} from '../index'
 
 const simple = readFileSync(path.resolve(__dirname, './html/simple.html')).toString()
+const nest = readFileSync(path.resolve(__dirname, './html/nest.html')).toString()
 const medium = readFileSync(path.resolve(__dirname, './html/medium.html')).toString()
 const zhihu = readFileSync(path.resolve(__dirname, './html/zhihu.html')).toString()
 
@@ -12,6 +13,13 @@ test('simple', () => {
 
   expect(result.title).toEqual('Simple Header')
   expect(result.content).not.toContain('comment')
+})
+
+test('nest', () => {
+  const result = juice(nest)
+
+  expect(result.content).toContain('section1')
+  expect(result.content).toContain('section2')
 })
 
 test('medium', () => {

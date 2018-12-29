@@ -4,7 +4,7 @@ import {grabContent, grabTitle} from './helpers'
 export interface Config {
   useHeaderAsTitle: boolean
   cleanH1: boolean
-  cleanAttribute: boolean,
+  cleanAttribute: boolean
   url: URL | null
 }
 
